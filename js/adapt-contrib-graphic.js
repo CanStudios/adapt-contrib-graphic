@@ -38,7 +38,7 @@ define(function(require) {
             }
 
         if (this._isVisibleTop && this._isVisibleBottom) {
-          this.$('.component-widget').off('inview');
+          this.$('.component__widget').off('inview');
           this.setCompletionStatus();
         }
       }
@@ -46,7 +46,7 @@ define(function(require) {
 
     remove: function() {
       // Remove any 'inview' listener attached.
-      this.$('.component-widget').off('inview');
+      this.$('.component__widget').off('inview');
 
       ComponentView.prototype.remove.apply(this, arguments);
     },
@@ -54,14 +54,14 @@ define(function(require) {
     resizeImage: function(width, setupInView) {
       var imageWidth = width === 'medium' ? 'small' : width;
       var imageSrc = (this.model.get('_graphic')) ? this.model.get('_graphic')[imageWidth] : '';
-      this.$('.graphic-widget img').attr('src', imageSrc);
+      this.$('.m-graphic__image').attr('src', imageSrc);
 
-      this.$('.graphic-widget').imageready(_.bind(function() {
+      this.$('.m-graphic__widget').imageready(_.bind(function() {
         this.setReadyStatus();
 
         if (setupInView) {
           // Bind 'inview' once the image is ready.
-          this.$('.component-widget').on('inview', _.bind(this.inview, this));
+          this.$('.component__widget').on('inview', _.bind(this.inview, this));
         }
       }, this));
     }

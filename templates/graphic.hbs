@@ -1,13 +1,21 @@
-<div class="graphic-inner component-inner" role="region" aria-label="{{_globals._components._graphic.ariaRegion}}">
+<div class="component__inner m-graphic__inner" role="region" aria-label="{{_globals._components._graphic.ariaRegion}}">
 
   {{> component this}}
 
-  <div class="graphic-widget component-widget{{#if _graphic.attribution}} graphic-widget-attribution{{/if}}">
-    <img src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}"{{#if _graphic.alt}} aria-label="{{_graphic.alt}}" tabindex="0"{{else}} class="a11y-ignore" aria-hidden="true" tabindex="-1"{{/if}}/>
+  <div class="component__widget m-graphic__widget{{#if _graphic.attribution}}  m-graphic__widget--has-attribution{{/if}}">
+    {{#if _graphic.alt}}
+    <img class="m-graphic__image" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-label="{{_graphic.alt}}" tabindex="0">
+    {{else}}
+    <img class="m-graphic__image a11y-ignore" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-hidden="true" tabindex="-1">
+    {{/if}}
   </div>
 
   {{#if _graphic.attribution}}
-    <div class="graphic-attribution">{{{_graphic.attribution}}}</div>
+  <div class="m-graphic__attribution">
+    <div class="m-graphic__attribution-inner">
+      {{{_graphic.attribution}}}
+    </div>
+  </div>
   {{/if}}
 
 </div>
