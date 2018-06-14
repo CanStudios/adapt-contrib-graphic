@@ -2,20 +2,24 @@
 
   {{> component this}}
 
-  <div class="component__widget m-graphic__widget{{#if _graphic.attribution}}  m-graphic__widget--has-attribution{{/if}}">
-    {{#if _graphic.alt}}
-    <img class="m-graphic__image" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-label="{{_graphic.alt}}" tabindex="0">
-    {{else}}
-    <img class="m-graphic__image a11y-ignore" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-hidden="true" tabindex="-1">
-    {{/if}}
-  </div>
+  <div class="component__widget m-graphic__widget{{#if _graphic.attribution}} has-attribution{{/if}}">
 
-  {{#if _graphic.attribution}}
-  <div class="m-graphic__attribution">
-    <div class="m-graphic__attribution-inner">
-      {{{_graphic.attribution}}}
+    <div class="m-graphic__image-container">
+      {{#if _graphic.alt}}
+      <img class="m-graphic__image" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-label="{{_graphic.alt}}" tabindex="0">
+      {{else}}
+      <img class="m-graphic__image a11y-ignore" src="{{_graphic.src}}" data-large="{{_graphic.large}}" data-small="{{_graphic.small}}" aria-hidden="true" tabindex="-1">
+      {{/if}}
     </div>
+
+    {{#if _graphic.attribution}}
+    <div class="m-graphic__attribution">
+      <div class="m-graphic__attribution-inner">
+        {{{_graphic.attribution}}}
+      </div>
+    </div>
+    {{/if}}
+
   </div>
-  {{/if}}
 
 </div>
